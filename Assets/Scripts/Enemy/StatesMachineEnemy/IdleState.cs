@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 // esta clase maneja el estado Idle y pasa al chase
 public class IdleState : State
@@ -8,6 +9,7 @@ public class IdleState : State
     public ChaseState chaseState;
     public bool canSeeThePlayer;
 
+    public UnityEvent StartChasing;
     private void Start()
     {
         canSeeThePlayer= false;
@@ -34,7 +36,8 @@ public class IdleState : State
         {
             if (canSeeThePlayer == false)
             {
-                canSeeThePlayer = true;
+             StartChasing?.Invoke();
+             canSeeThePlayer = true;
             }
         }
     }

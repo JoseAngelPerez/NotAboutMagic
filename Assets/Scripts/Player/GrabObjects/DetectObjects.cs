@@ -11,9 +11,14 @@ public class DetectObjects : MonoBehaviour
     public GameObject currentGraspableObject;
     public bool objectDetected { get; private set; }
 
+    // Numero de layer en el que están las posiones, es para que el Raycast omita los demás objetos
+    private int layerNumber = 6;
+    private int layerMask;
+
     private void Start()
     {
         objectDetected= false;
+        layerMask = 1 << layerNumber;
     }
 
     void Update()
@@ -26,7 +31,7 @@ public class DetectObjects : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
 
-        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "GraspableObject")
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask  ) && hit.collider.gameObject.tag == "GraspableObject")
         {
             if (hit.distance <= maxDetectionDistance  && objectDetected == false && hit.collider.gameObject.tag == "GraspableObject")
             {

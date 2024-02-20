@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-//Esta clase maneja el estado Idle y pasa al estado Attack
+//Esta clase maneja el estado Chase y pasa al estado Attack
 public class ChaseState : State
 {
     public AttackState attackState;
     public bool isInAttackRange;
+
+    public UnityEvent StartAttacking;
+
+
     public override State RunCurrentState()
     {
         if(isInAttackRange)
@@ -20,12 +25,14 @@ public class ChaseState : State
         }
     }
 
+    // Sí el jugador entra en el rango de ataque pasa de estdo y comienza a atacar
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            if (isInAttackRange == false)
+            if (isInAttackRange == false )
             {
+                StartAttacking?.Invoke();
                 isInAttackRange = true;
             }
         }
