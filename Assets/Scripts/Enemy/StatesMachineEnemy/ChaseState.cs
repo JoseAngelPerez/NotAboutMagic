@@ -19,4 +19,15 @@ public class ChaseState : State
             return this;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (isInAttackRange == false)
+            {
+                isInAttackRange = true;
+            }
+        }
+    }
 }

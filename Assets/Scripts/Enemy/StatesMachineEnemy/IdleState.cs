@@ -26,12 +26,13 @@ public class IdleState : State
             return this;
         }
     }
-    //Revisa sí el jugador ingresó a la zona del enemigo para cambiar de estado
-    private void OnCollisionEnter(Collision collision)
+    
+    //Revisa sí el jugador ingresó a la zona del enemigo para cambiar de estado y comenzar a perseguirlo
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag =="Player")
+        if (other.gameObject.tag == "Player")
         {
-            if(canSeeThePlayer==false)
+            if (canSeeThePlayer == false)
             {
                 canSeeThePlayer = true;
             }

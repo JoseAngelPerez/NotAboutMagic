@@ -8,7 +8,7 @@ public class DetectObjects : MonoBehaviour
 {
     RaycastHit hit;
     [SerializeField] private float maxDetectionDistance =2f;
-    public GameObject currentGraspableObject { get; private set; }
+    public GameObject currentGraspableObject;
     public bool objectDetected { get; private set; }
 
     private void Start()
@@ -26,7 +26,7 @@ public class DetectObjects : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "GraspableObject")
         {
             if (hit.distance <= maxDetectionDistance  && objectDetected == false && hit.collider.gameObject.tag == "GraspableObject")
             {
@@ -37,7 +37,14 @@ public class DetectObjects : MonoBehaviour
                 Debug.Log("Object Detected");
             }
         }
-        // Sí se deja de detectar el objeto este se remueve para dar paso a detectar otro
+
+        // Sí se detecta un objeto que no sea un GraspableObject remueve cualquier objeto detectado
+        else if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag != "GraspableObject")
+        {
+            RemoveDetectedObject();
+        }
+
+        // Sí se deja de detectar objetos se remueve cualquier objeto detectado
         else
         {
             RemoveDetectedObject();

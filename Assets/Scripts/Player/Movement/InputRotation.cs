@@ -16,7 +16,14 @@ public class InputRotation : InputBase
         playerInput = new PlayerInput();
         playerTransform= GameObject.FindWithTag("Player").transform;
 
+        SetUpCursor();
+    }
+
+    // Esconde el cursor y lo deja bloqueado al centro de la pantalla
+    private void SetUpCursor()
+    {
         Cursor.visible = false;
+        Cursor.lockState= CursorLockMode.Locked;
     }
 
     // El método OnRotate es llamado por el input system al mover el mouse

@@ -5,7 +5,7 @@ using UnityEngine;
 // Clase encargada de manejar los estados del enemy
 public class StateManager : MonoBehaviour
 {
-    private State currentState;
+   [SerializeField] private State currentState;
 
     private void Update()
     {
