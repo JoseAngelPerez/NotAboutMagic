@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 14a7565f6fe08044ab81b4f73e2844d1, type: 2}
 --- !u!1 &237767546
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 13079
+  m_ColorTemperature: 5843
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -291,14 +291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 237767547}
     m_Modifications:
-    - target: {fileID: 704484855, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
-      propertyPath: throwForce
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 704484855, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
-      propertyPath: throwUpwardForce
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 1000012970591572, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_Name
       value: Bottle_Health
@@ -346,11 +338,6 @@ PrefabInstance:
     - target: {fileID: 4000010690109084, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2246952417366498398, guid: 7cafb89b5a0f61f479d0a748962abbbc,
-        type: 3}
-      propertyPath: m_Mass
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cafb89b5a0f61f479d0a748962abbbc, type: 3}
@@ -537,6 +524,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3136890715601985959, guid: 670d860f6472fdf4d8ceb39c22aed4db,
+        type: 3}
+      propertyPath: movementForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3136890715601985961, guid: 670d860f6472fdf4d8ceb39c22aed4db,
         type: 3}
       propertyPath: m_Name
@@ -977,6 +969,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1051394379, guid: a0bde639e0b95f347a86566041d6f78f, type: 3}
+      propertyPath: throwForce
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051394379, guid: a0bde639e0b95f347a86566041d6f78f, type: 3}
+      propertyPath: throwUpwardForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041545431285282017, guid: a0bde639e0b95f347a86566041d6f78f,
+        type: 3}
+      propertyPath: MiniDistancetoDetect
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4955212967104917351, guid: a0bde639e0b95f347a86566041d6f78f,
         type: 3}
       propertyPath: m_Name
@@ -986,6 +991,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732980466332661213, guid: a0bde639e0b95f347a86566041d6f78f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732980466332661213, guid: a0bde639e0b95f347a86566041d6f78f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5732980466332661213, guid: a0bde639e0b95f347a86566041d6f78f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5732980466332661213, guid: a0bde639e0b95f347a86566041d6f78f,
         type: 3}
@@ -1000,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 5732980466332661213, guid: a0bde639e0b95f347a86566041d6f78f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.66720057
+      value: 19.15
       objectReference: {fileID: 0}
     - target: {fileID: 5732980466332661213, guid: a0bde639e0b95f347a86566041d6f78f,
         type: 3}
@@ -1036,6 +1056,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049028997098222958, guid: a0bde639e0b95f347a86566041d6f78f,
+        type: 3}
+      propertyPath: MiniDistancetoDetect
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267055598071697814, guid: a0bde639e0b95f347a86566041d6f78f,
+        type: 3}
+      propertyPath: m_Speed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0bde639e0b95f347a86566041d6f78f, type: 3}

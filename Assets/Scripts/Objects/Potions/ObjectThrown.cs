@@ -12,6 +12,8 @@ public class ObjectThrown : MonoBehaviour
     private Transform throwPoint;
     private Transform mainCamera;
 
+    [SerializeField] private LayerMask layerMask;
+
     [SerializeField] private float throwForce = 100f, throwUpwardForce = 50f;
 
     // Usa los transform de la cámara y de un espacio frente a ella como referencia
@@ -34,7 +36,7 @@ public class ObjectThrown : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(mainCamera.position, mainCamera.forward, out hit, 500f))
+        if (Physics.Raycast(mainCamera.position, mainCamera.forward, out hit, 500f, layerMask))
         {
             forceDirection = (hit.point - transform.position).normalized;
         } 

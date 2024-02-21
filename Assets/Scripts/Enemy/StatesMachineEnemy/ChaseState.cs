@@ -11,6 +11,13 @@ public class ChaseState : State
 
     public UnityEvent StartAttacking;
 
+    private void Update()
+    {
+        if (isInAttackRange == false)
+        {
+            CheckDistancePlayer();
+        }
+    }
 
     public override State RunCurrentState()
     {
@@ -25,16 +32,14 @@ public class ChaseState : State
         }
     }
 
-    // Sí el jugador entra en el rango de ataque pasa de estdo y comienza a atacar
-    private void OnTriggerEnter(Collider other)
+    private void CheckDistancePlayer()
     {
-        if (other.gameObject.tag == "Player")
+        currentDistance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (currentDistance <= MiniDistancetoDetect)
         {
-            if (isInAttackRange == false )
-            {
-                StartAttacking?.Invoke();
-                isInAttackRange = true;
-            }
+            StartAttacking?.Invoke();
+            isInAttackRange = true;
         }
     }
 }

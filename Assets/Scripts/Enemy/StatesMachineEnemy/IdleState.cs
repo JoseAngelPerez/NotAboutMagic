@@ -7,18 +7,22 @@ using UnityEngine.Events;
 public class IdleState : State
 {
     public ChaseState chaseState;
-    public bool canSeeThePlayer;
+    public bool IsInchasingRange;
 
     public UnityEvent StartChasing;
-    private void Start()
+
+    private void Update()
     {
-        canSeeThePlayer= false;
+        if(IsInchasingRange==false)
+        {
+            CheckDistancePlayer();
+        }
     }
 
-    // Cambia de estado al tener al jugador 
+    // Cambia de estado al tener al jugador en su rango de acción
     public override State RunCurrentState()
     {
-        if(canSeeThePlayer)
+        if(IsInchasingRange)
         {
             return chaseState;
         }
@@ -28,17 +32,16 @@ public class IdleState : State
             return this;
         }
     }
-    
-    //Revisa sí el jugador ingresó a la zona del enemigo para cambiar de estado y comenzar a perseguirlo
-    private void OnTriggerEnter(Collider other)
+
+    // Revisa las distancia actual respecto al player
+    private void CheckDistancePlayer()
     {
-        if (other.gameObject.tag == "Player")
+        currentDistance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (currentDistance<= MiniDistancetoDetect)
         {
-            if (canSeeThePlayer == false)
-            {
-             StartChasing?.Invoke();
-             canSeeThePlayer = true;
-            }
+            StartChasing?.Invoke();
+            IsInchasingRange = true;
         }
     }
 }
