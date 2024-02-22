@@ -69,12 +69,11 @@ public class Inventory : MonoBehaviour
     private bool LookForEmptySlots()
     {
        int slotsInUse = 0;
-      List<float> slotsUsed = new List<float>() { PercentageUsedPerSlot(potionsInventory[PotionType.TypesOfPotions.BluePotion], maxBluePotions), PercentageUsedPerSlot(potionsInventory[PotionType.TypesOfPotions.RedPotion], maxRedPotions), PercentageUsedPerSlot(potionsInventory[PotionType.TypesOfPotions.GreenPotion], maxGreenPotions) };
-        foreach (int slot in slotsUsed)
-        {
-            if(slot>0) slotsInUse++;
-        }
+        if (CheckItemAvailability(PotionType.TypesOfPotions.BluePotion)) slotsInUse++;
+        if (CheckItemAvailability(PotionType.TypesOfPotions.RedPotion)) slotsInUse++;
+        if (CheckItemAvailability(PotionType.TypesOfPotions.GreenPotion)) slotsInUse++;
 
+        Debug.Log(" use " + slotsInUse + "Max" + maxSlots);
         if(slotsInUse<maxSlots)
             return true;
         else
