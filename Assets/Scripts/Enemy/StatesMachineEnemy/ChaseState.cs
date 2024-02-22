@@ -36,7 +36,7 @@ public class ChaseState : State
     {
         currentDistance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (currentDistance <= MiniDistancetoDetect)
+        if (currentDistance <= MaxDistanceToAttack)
         {
             StartAttacking?.Invoke();
             isInAttackRange = true;

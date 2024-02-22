@@ -8,7 +8,7 @@ public abstract class State : MonoBehaviour
     public abstract State RunCurrentState();
 
     protected GameObject player;
-    [SerializeField] protected float currentDistance, MiniDistancetoDetect = 10;
+    [SerializeField] protected float currentDistance, MaxDistanceToAttack = 10;
     protected void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

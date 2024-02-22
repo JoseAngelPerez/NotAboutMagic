@@ -8,6 +8,8 @@ TagManager:
   - GrabPosition
   - GraspableObject
   - ThrowPoint
+  - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX

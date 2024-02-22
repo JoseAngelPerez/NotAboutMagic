@@ -38,7 +38,7 @@ public class IdleState : State
     {
         currentDistance = Vector3.Distance(player.transform.position, transform.position);
 
-        if (currentDistance<= MiniDistancetoDetect)
+        if (currentDistance<= MaxDistanceToAttack)
         {
             StartChasing?.Invoke();
             IsInchasingRange = true;

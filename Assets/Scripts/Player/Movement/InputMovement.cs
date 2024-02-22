@@ -22,10 +22,8 @@ public class InputMovement : InputBase
     private void FixedUpdate()
     {
      
-            moveDirection = rb.rotation * new Vector3(playerInput.actions["Move"].ReadValue<Vector2>().x, 0, playerInput.actions["Move"].ReadValue<Vector2>().y);
-            rb.MovePosition(rb.position + (moveDirection * movementForce * Time.fixedDeltaTime));
-            playerIsMoving?.Invoke();
-
-
+          moveDirection = rb.rotation * new Vector3(playerInput.actions["Move"].ReadValue<Vector2>().x, 0, playerInput.actions["Move"].ReadValue<Vector2>().y);
+       rb.AddForce(moveDirection * movementForce * Time.fixedDeltaTime, ForceMode.Impulse);
+        playerIsMoving?.Invoke();
     }
 }

@@ -27,8 +27,6 @@ public class ObjectThrown : MonoBehaviour
     //Se lanza usando los transfrom de referencia siguiendo un Raycast
     public void Throw()
     {
-        Debug.Log("It is been Throw");
-
         transform.rotation = mainCamera.transform.rotation;
         transform.position= throwPoint.transform.position;
 

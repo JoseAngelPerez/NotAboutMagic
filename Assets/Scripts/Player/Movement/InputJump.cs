@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 // Clase encargada del salto del personaje
@@ -9,6 +10,10 @@ public class InputJump : InputBase
 {
     // Buleano que evita que el jugador salte si ya está en el aire
     private bool playerIsJumping;
+
+    private Vector3 vector3Force;
+
+    [SerializeField] private float timeToFall=1, fallForce;
 
     public void Start()
     {
@@ -24,8 +29,16 @@ public class InputJump : InputBase
         if (playerIsJumping ==false)
         {
             rb.AddForce(Vector3.up * movementForce);
-            playerIsJumping= true;
+            playerIsJumping = true;
+            StartCoroutine(Fall());
         }
+    }
+
+    private IEnumerator Fall()
+    {
+        yield return new WaitForSeconds(timeToFall);
+        vector3Force =new Vector3(0, 1, 0);
+        rb.velocity = (vector3Force * (-fallForce));
     }
 
     // Al colisionar contra el suelo le permite al jugador volver a saltar
