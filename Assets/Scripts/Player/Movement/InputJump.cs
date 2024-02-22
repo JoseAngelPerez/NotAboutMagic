@@ -24,7 +24,7 @@ public class InputJump : InputBase
 
     // El método OnJump es llamado por el input system al presionar la barra espaciadora
     // Revisa si el jugador ya está en el aire y en caso contrario lo deja saltar y bloquea el salto
-    private void OnJump()
+    public void OnJump()
     {
         if (playerIsJumping ==false)
         {
