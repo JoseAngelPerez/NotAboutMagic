@@ -13,20 +13,21 @@ public class EnemyAnimationsController : MonoBehaviour
         enemyAnimator= GetComponent<Animator>();
     }
 
-    // Pasa de la animación Idle a Run
+    // Pasa a la animación Run
     public void StartChasing()
     {
         enemyAnimator.SetBool("IsAttacking", false);
         enemyAnimator.SetBool("IsRunning", true);
     }
 
-    // Pasa de la animación Run a Attack
+    // Pasa a la animación Attack
     public void StartAttacking()
     {
         enemyAnimator.SetBool("IsRunning", false);
         enemyAnimator.SetBool("IsAttacking", true);
     }
 
+    // Pasa a la animación de death
     public void StartDeath()
     {
         enemyAnimator.SetBool("IsRunning", false);

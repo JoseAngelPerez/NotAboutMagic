@@ -4802,6 +4802,7 @@ GameObject:
   - component: {fileID: 2879795107783915412}
   - component: {fileID: 1937090254604228163}
   - component: {fileID: 1937090253724557069}
+  - component: {fileID: 3759625899846014764}
   m_Layer: 6
   m_Name: BlueBottle
   m_TagString: GraspableObject
@@ -4816,7 +4817,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937217250596309173}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.3743038, y: -1.5430053, z: -4.134486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4885,6 +4886,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   damageObjectiveTag: 
+--- !u!114 &3759625899846014764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937217250596309173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c67ceebd835bf7498c01eedea162607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPotionType: 1
 --- !u!1 &1937217250721770867
 GameObject:
   m_ObjectHideFlags: 0

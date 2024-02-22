@@ -19,6 +19,7 @@ public class ChaseState : State
         }
     }
 
+    // Este método se revisa constantemente en la máquina de estados para pasar al siguiente estado
     public override State RunCurrentState()
     {
         if(isInAttackRange)
@@ -32,6 +33,7 @@ public class ChaseState : State
         }
     }
 
+    // Este método revisa la distancia respecto al jugador y en caso de estar lo suficientemente cerca cambia de estado
     private void CheckDistancePlayer()
     {
         currentDistance = Vector3.Distance(player.transform.position, transform.position);

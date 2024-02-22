@@ -19,7 +19,7 @@ public class IdleState : State
         }
     }
 
-    // Cambia de estado al tener al jugador en su rango de acción
+    // Este método se revisa constantemente en la máquina de estados para pasar al siguiente estado
     public override State RunCurrentState()
     {
         if(IsInchasingRange)
@@ -33,7 +33,7 @@ public class IdleState : State
         }
     }
 
-    // Revisa las distancia actual respecto al player
+    // Este método revisa la distancia respecto al jugador y en caso de estar lo suficientemente cerca cambia de estado
     private void CheckDistancePlayer()
     {
         currentDistance = Vector3.Distance(player.transform.position, transform.position);

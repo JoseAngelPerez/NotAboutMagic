@@ -8,55 +8,44 @@ using UnityEngine.InputSystem;
 public class GrabObjects : MonoBehaviour
 {
     private PlayerInput playerInput;
-    private DetectObjects objectDetetion;
-
-    private Transform grabPosition;
-    public GameObject grabbedObject;
+    public DetectObjects objectDetetion;
 
     public UnityEvent GrabAnObject;
 
-    public bool objectIsGrabbed;
+    Inventory potionsInventory;
+
+    private HoldObjects holdObjects;
 
     private void Start()
     {
         playerInput = new PlayerInput();
 
         objectDetetion = GetComponent<DetectObjects>();
-        grabPosition = GameObject.FindGameObjectWithTag("GrabPosition").transform;
 
-        objectIsGrabbed = false;
+       potionsInventory = transform.parent.gameObject.GetComponent<Inventory>();
+
+        holdObjects = GetComponent<HoldObjects>();
     }
 
     // Este método es llamado cuando el jugador presiona click izquierdo 
     private void OnGrab()
     {
-        if (objectDetetion.objectDetected && objectIsGrabbed == false)
+        if (objectDetetion.objectDetected && potionsInventory.IsPossibleToAddThisPotion(objectDetetion.currentGraspableObject.GetComponent<PotionType>().thisPotionType))
         {
             TakeAnObject();
-            GrabAnObject.Invoke();
+            if (holdObjects.isHolding== false) ;
+            {
+                holdObjects.Hold(objectDetetion.currentGraspableObject.GetComponent<PotionType>().thisPotionType);
+            }
+            Destroy(objectDetetion.currentGraspableObject);
+            GrabAnObject?.Invoke();
         }
     }
 
     // Toma el objeto que está siendo detectado y lo hace hijo de la camara para que siga al personaje
     private void TakeAnObject()
     {
-        grabbedObject = objectDetetion.currentGraspableObject;
-        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
-        grabbedObject.transform.parent = transform;
-        grabbedObject.transform.rotation = grabPosition.transform.rotation;
-        grabbedObject.transform.position = grabPosition.transform.position;
-        objectIsGrabbed = true;
+        potionsInventory.AddPotion(objectDetetion.currentGraspableObject.GetComponent<PotionType>().thisPotionType);
     }
-
-    // Remueve el objeto como hijo y regresa su RigidBody a la normalidad
-    public void UnhandAnObject()
-    {
-        if(objectIsGrabbed)
-        {
-            grabbedObject.transform.parent = null;
-            grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
-            grabbedObject = null;
-            objectIsGrabbed = false;
-        }
-    }
+ 
 }

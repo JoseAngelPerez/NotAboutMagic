@@ -4917,6 +4917,7 @@ GameObject:
   - component: {fileID: 2421303370463202695}
   - component: {fileID: 2421303370463202713}
   - component: {fileID: 2421303371334310824}
+  - component: {fileID: 7325637901026119079}
   m_Layer: 6
   m_Name: GreenBotte
   m_TagString: GraspableObject
@@ -4931,7 +4932,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2421176384099478588}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.984396, y: -1.3280053, z: -2.3658843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5000,3 +5001,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 40
   damageObjectiveTag: 
+--- !u!114 &7325637901026119079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421176384099478588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c67ceebd835bf7498c01eedea162607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPotionType: 2

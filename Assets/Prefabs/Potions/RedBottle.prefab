@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 687390658464351378}
   - component: {fileID: 2598882192752327332}
   - component: {fileID: 2598882193590514056}
+  - component: {fileID: 8996930452680559727}
   m_Layer: 6
   m_Name: RedBottle
   m_TagString: GraspableObject
@@ -111,7 +112,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2599307147553057287}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9440958, y: -1.5430053, z: -4.7510157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -180,6 +181,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   damageObjectiveTag: 
+--- !u!114 &8996930452680559727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599307147553057287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c67ceebd835bf7498c01eedea162607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPotionType: 0
 --- !u!1 &2599307149039577919
 GameObject:
   m_ObjectHideFlags: 0

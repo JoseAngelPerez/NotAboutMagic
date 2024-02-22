@@ -7,8 +7,9 @@ using UnityEngine.InputSystem;
 // Clase encargada de lanzar objetos
 public class ThrowObjects : MonoBehaviour
 {
+    private HoldObjects holdObjects;
     private PlayerInput playerInput;
-    private GrabObjects grabObjects;
+  
 
     private GameObject objectToThrow;
 
@@ -16,17 +17,17 @@ public class ThrowObjects : MonoBehaviour
 
     private void Start()
     {
-        grabObjects=GetComponent<GrabObjects>();
+        holdObjects =GetComponent<HoldObjects>();
     }
     // Al recibir en input del click derecho suelta el objeto y activa su script que lo hace lanzarse
     private void OnThrow()
     {
-        if(grabObjects.objectIsGrabbed)
+        if(holdObjects.isHolding)
         {
-            objectToThrow = grabObjects.grabbedObject;
+            objectToThrow = holdObjects.HeldObject;
             ThrowAnObject?.Invoke();
             objectToThrow.GetComponent<ObjectThrown>().Throw();
-            objectToThrow.GetComponent<PotionsHarm>().MakeItReadyToHarm();
+            objectToThrow.GetComponent<PotionHarm>().MakeItReadyToHarm();
         }
     }
 }

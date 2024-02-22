@@ -12,7 +12,7 @@ public class StateManager : MonoBehaviour
         RunStateMachine();
     }
 
-    //Revisa constantemente el estado actual
+    // Revisa constantemente el estado actual, el cual es actualizado por el propio estado y sí hay un cambio lo procesa
     private void RunStateMachine()
     {
         State nextState= currentState?.RunCurrentState();
