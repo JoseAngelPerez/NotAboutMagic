@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 // Clase que se encarga de manejar el inventario de pociones 
 // El inventario permite tener dos slots activos, pero cada uno debe ser de pociones distintas y no se pueden llevar más de las permitidas por cada tipo
@@ -12,6 +13,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private float maxRedPotions, maxBluePotions, maxGreenPotions;
     [SerializeField] private int maxSlots=2;
+
+    public UnityEvent InventoryChange;
 
 
     private void Start()
@@ -117,6 +120,8 @@ public class Inventory : MonoBehaviour
             default:
                 break;
         }
+
+        InventoryChange?.Invoke();
 
         Debug.Log(" green " + potionsInventory[PotionType.TypesOfPotions.GreenPotion] + " Blue " + potionsInventory[PotionType.TypesOfPotions.BluePotion] + " Red " + potionsInventory[PotionType.TypesOfPotions.RedPotion]);
     }
