@@ -10,6 +10,7 @@ TagManager:
   - ThrowPoint
   - Enemy
   - Obstacle
+  - ParedPintable
   layers:
   - Default
   - TransparentFX
